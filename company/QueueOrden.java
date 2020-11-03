@@ -1,4 +1,4 @@
-package com.company;
+package examen2.company;
 
 public class QueueOrden<T extends Comparable<T>> {
     public Node<T> end;
@@ -74,31 +74,47 @@ public class QueueOrden<T extends Comparable<T>> {
         return temp.getValue();
     }
 
-    public int totalRuntime(Node<T> nodo,int TIME) {
+    public int totalRuntime(Node<T> nodo, int TIME) {
         int time = TIME;
         while (nodo != null) {
             time += nodo.getCPU();
             nodo = nodo.getNext();
-            totalRuntime(nodo,time);
+            totalRuntime(nodo, time);
         }
-            return time;
+        return time;
     }
-    public  void escheduler() {
+
+    public Node<T> buscar(){
+        Node<T> aux= this.end;
+        int i=0;
+        Node<T> temp= aux;
+        do{
+            if(aux.getLlegada()==i){
+                i++;
+                aux.setCPU(aux.getCPU()-1);
+                while(temp.getPrev().getLlegada()<=i){
+                    temp=temp.getPrev();
+
+                }
+                if(temp.getPrev().getLlegada()>i){
+                 //temp.llegada es mayor a i, osea ciclo actual   
+                }
+
+            }
+            else
+                aux= aux.getNext()
+        }
+
+    public void escheduler() {
         int RUNTIME = totalRuntime(this.end, 0);
         int ciclos = 0;
         int menor = 0;
         int aux1;
         int aux2;
         for (int i = 0; i < RUNTIME; i++) {
-            
-            
-        }
-        
-        
-        
-
 
         }
-        
+
     }
 
+}

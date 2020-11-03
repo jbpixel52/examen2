@@ -1,5 +1,5 @@
 
-package com.company;
+package examen2.company;
 
 public class Node<T extends Comparable<T>> {
     private T value;
@@ -55,8 +55,12 @@ public class Node<T extends Comparable<T>> {
     public int getLlegada() {
         return this.llegada;
     }
+
     public int getCPU() {
         return this.cpu;
+    }
+    public void setCPU(int x){
+        this.cpu = x;
     }
 
 }
