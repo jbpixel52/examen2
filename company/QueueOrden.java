@@ -84,26 +84,26 @@ public class QueueOrden<T extends Comparable<T>> {
         return time;
     }
 
-    public Node<T> buscar(){
-        Node<T> aux= this.end;
-        int i=0;
-        Node<T> temp= aux;
-        do{
-            if(aux.getLlegada()==i){
+    public Node<T> buscar() {
+        Node<T> aux = this.end;
+        int i = 0;
+        Node<T> temp = aux;
+        do {
+            if (aux.getLlegada() == i) {
                 i++;
-                aux.setCPU(aux.getCPU()-1);
-                while(temp.getPrev().getLlegada()<=i){
-                    temp=temp.getPrev();
+                aux.setCPU(aux.getCPU() - 1);
+                while (temp.getPrev().getLlegada() <= i) {
+                    temp = temp.getPrev();
 
                 }
-                if(temp.getPrev().getLlegada()>i){
-                 //temp.llegada es mayor a i, osea ciclo actual   
+                if (temp.getPrev().getLlegada() > i) {
+                    //temp.llegada es mayor a i, osea ciclo actual   
                 }
 
-            }
-            else
-                aux= aux.getNext()
-        }
+            } else
+                aux = aux.getNext();
+        } while (true);
+    }
 
     public void escheduler() {
         int RUNTIME = totalRuntime(this.end, 0);
